@@ -1,0 +1,134 @@
+﻿.wizardContainer {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--accent-neon-blue);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+
+  .progressFill {
+    height: 100%;
+    background: var(--accent-neon-blue);
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  }
+}
+
+.questionContent {
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: left;
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    line-height: 1.4;
+  }
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.optionBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  .radioIndicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.optionBtn.selected {
+  background: rgba(157, 78, 221, 0.15); /* Purple tint */
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+
+  .radioIndicator {
+    border-color: var(--accent-purple);
+    background: var(--accent-purple);
+    box-shadow: inset 0 0 0 4px rgba(10, 10, 10, 1); /* Creates inner ring (matching primary bg) */
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  .nextBtn {
+    background: var(--accent-neon-blue);
+    color: #000;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+    }
+
+    &:disabled {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.3);
+      cursor: not-allowed;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}

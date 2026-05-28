@@ -1,0 +1,203 @@
+﻿.treeContainer {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.treeHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  h1 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    background: linear-gradient(90deg, var(--accent-neon-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+  }
+}
+
+.nodesWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  
+  /* Central vertical line */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    z-radius: 2px;
+    z-index: 0;
+  }
+}
+
+.nodeItem {
+  position: relative;
+  z-index: 1;
+  width: 45%;
+  display: flex;
+  
+  /* Alternating zig-zag layout */
+  &:nth-child(odd) {
+    align-self: flex-start;
+    justify-content: flex-end;
+    padding-right: 3rem;
+    text-align: right;
+    
+    .nodeConnector {
+      right: -10px;
+    }
+  }
+  
+  &:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-left: 3rem;
+    text-align: left;
+    
+    .nodeConnector {
+      left: -10px;
+    }
+  }
+}
+
+.nodeCard {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  
+  h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .nodeTag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  /* States */
+  &.completed {
+    border-color: rgba(0, 243, 255, 0.3);
+    .nodeTag {
+      background: rgba(0, 243, 255, 0.1);
+      color: var(--accent-neon-blue);
+    }
+  }
+  
+  &.inProgress {
+    border-color: rgba(157, 78, 221, 0.5);
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
+    transform: scale(1.05);
+    
+    .nodeTag {
+      background: rgba(157, 78, 221, 0.2);
+      color: var(--accent-purple);
+    }
+  }
+  
+  &.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    .nodeTag {
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  &:hover:not(.locked) {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.nodeConnector {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  transition: all 0.3s ease;
+  
+  &.completed {
+    border-color: var(--accent-neon-blue);
+    background: var(--accent-neon-blue);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  }
+  
+  &.inProgress {
+    border-color: var(--accent-purple);
+    background: var(--accent-purple);
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.8);
+    animation: pulseConnector 2s infinite;
+  }
+}
+
+@keyframes pulseConnector {
+  0% { box-shadow: 0 0 0 0 rgba(157, 78, 221, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(157, 78, 221, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(157, 78, 221, 0); }
+}
+
+@media (max-width: 768px) {
+  .nodesWrapper::before {
+    left: 20px;
+  }
+  
+  .nodeItem {
+    width: 100%;
+    align-self: flex-start !important;
+    justify-content: flex-start !important;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    
+    .nodeConnector {
+      left: 10px !important;
+      right: auto !important;
+    }
+  }
+  
+  .nodeCard {
+    max-width: 100%;
+  }
+}

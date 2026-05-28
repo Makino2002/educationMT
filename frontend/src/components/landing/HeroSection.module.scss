@@ -1,0 +1,106 @@
+.hero {
+  background: var(--bg-primary);
+  background-image: radial-gradient(circle at 10% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(255, 120, 45, 0.15) 0%, transparent 40%);
+  padding: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.content {
+  text-align: left;
+  max-width: 700px;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ffffff, #85c2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.ctaButton {
+  background: linear-gradient(90deg, #ff782d, #ff5500);
+  border: none;
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 120, 45, 0.4);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 120, 45, 0.6);
+  }
+}
+
+.cardsRow {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.featureCard {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, background 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: var(--bg-card-hover);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+}

@@ -1,0 +1,171 @@
+﻿.section {
+  padding: 5rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.bridgeContainer {
+  display: flex;
+  gap: 2rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.latestTest {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 900px) {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  button {
+    background: linear-gradient(90deg, #ff782d, #ff5500);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.testCards {
+  flex: 2;
+  display: flex;
+  gap: 1.5rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.testCard {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .iconTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .icon {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .badge {
+    font-size: 1.5rem;
+  }
+}
+
+.loadingBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+
+  .progress {
+    width: 30%;
+    height: 100%;
+    background: var(--accent-blue);
+    border-radius: 3px;
+  }
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.cardBtn {
+  margin-top: auto;
+  width: 100%;
+  background: rgba(255, 120, 45, 0.15);
+  border: 1px solid var(--accent-orange);
+  color: var(--accent-orange);
+  padding: 0.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--accent-orange);
+    color: white;
+  }
+}

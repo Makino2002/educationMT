@@ -1,0 +1,103 @@
+﻿.generatingContainer {
+  background: transparent; /* No card background, just pure focus on the loader */
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerBox {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glowRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--accent-neon-blue);
+  border-bottom-color: var(--accent-purple);
+  animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 20px rgba(157, 78, 221, 0.2);
+}
+
+.innerRing {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-left-color: var(--accent-neon-blue);
+  border-right-color: var(--accent-purple);
+  animation: spinReverse 2s linear infinite;
+}
+
+.centerCore {
+  width: 30px;
+  height: 30px;
+  background: var(--text-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusText {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  min-height: 2rem;
+  animation: typing 0.5s steps(10, end);
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+
+  .progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-neon-blue), var(--accent-purple));
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes typing {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
